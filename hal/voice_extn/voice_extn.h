@@ -191,18 +191,6 @@ static int voice_extn_compress_voip_start_output_stream(struct stream_out *out _
     return -ENOSYS;
 }
 
-static int voice_extn_compress_voip_set_mic_mute(struct audio_device *adev, bool state __unused)
-{
-    ALOGE("%s: COMPRESS_VOIP_ENABLED is not defined", __func__);
-    return 0;
-}
-
-static int voice_extn_compress_voip_set_volume(struct audio_device *adev __unused, float volume __unused)
-{
-    ALOGE("%s: COMPRESS_VOIP_ENABLED is not defined", __func__);
-    return 0;
-}
-
 static int voice_extn_compress_voip_select_devices(struct audio_device *adev __unused,
                                                    snd_device_t *out_snd_device __unused,
                                                    snd_device_t *in_snd_device __unused)
@@ -262,7 +250,8 @@ static bool voice_extn_compress_voip_is_config_supported(struct audio_config *co
     return true;
 }
 
-static bool voice_extn_compress_voip_is_started(struct audio_device *adev __unused)
+static bool voice_extn_compress_voip_is_started(struct audio_device *
+adev __unused)
 {
     ALOGE("%s: COMPRESS_VOIP_ENABLED is not defined", __func__);
     return false;

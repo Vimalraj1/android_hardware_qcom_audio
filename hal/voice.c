@@ -416,9 +416,6 @@ int voice_set_mic_mute(struct audio_device *adev, bool state)
     adev->voice.mic_mute = state;
     if (adev->mode == AUDIO_MODE_IN_CALL)
         err = platform_set_mic_mute(adev->platform, state);
-    if (adev->mode == AUDIO_MODE_IN_COMMUNICATION)
-        err = voice_extn_compress_voip_set_mic_mute(adev, state);
-
     return err;
 }
 
@@ -448,9 +445,6 @@ int voice_set_volume(struct audio_device *adev, float volume)
 
         err = platform_set_voice_volume(adev->platform, vol);
     }
-    if (adev->mode == AUDIO_MODE_IN_COMMUNICATION)
-        err = voice_extn_compress_voip_set_volume(adev, volume);
-
 
     return err;
 }
